@@ -1,6 +1,5 @@
 
 import UIKit
-import SwiftUI
 import SnapKit
 
 
@@ -141,15 +140,3 @@ extension MainViewController {
     }
 
 }
-
-//MARK: - Preview
-struct VCPreView2:PreviewProvider {
-    static var previews: some View {
-        MainViewController().toPreview().edgesIgnoringSafeArea(.all)
-    }
-}
-
-
-
-
-

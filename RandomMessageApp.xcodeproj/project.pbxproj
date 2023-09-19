@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		083FC23F2AB95D650004E86F /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083FC23E2AB95D640004E86F /* APIManager.swift */; };
 		0863A40E2AB7F0ED00553007 /* HexColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0863A40D2AB7F0ED00553007 /* HexColorExtension.swift */; };
 		0863A4102AB7FAC400553007 /* SendMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0863A40F2AB7FAC400553007 /* SendMessageViewController.swift */; };
 		0863A4122AB7FAE700553007 /* ReadMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0863A4112AB7FAE700553007 /* ReadMessageViewController.swift */; };
@@ -15,13 +16,12 @@
 		086F245A2AB742DE006E10FB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086F24592AB742DE006E10FB /* LoginViewController.swift */; };
 		086F245F2AB742DF006E10FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 086F245E2AB742DF006E10FB /* Assets.xcassets */; };
 		086F246A2AB743EF006E10FB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086F24692AB743EF006E10FB /* MainViewController.swift */; };
-		086F24722AB77288006E10FB /* PreviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086F24712AB77288006E10FB /* PreviewExtension.swift */; };
 		086F24742AB7744F006E10FB /* login.riv in Resources */ = {isa = PBXBuildFile; fileRef = 086F24732AB7744F006E10FB /* login.riv */; };
-		08E587CB2AB7DAF200EE26BB /* WebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E587CA2AB7DAF200EE26BB /* WebSocketManager.swift */; };
 		6B31E203150012D539D02E98 /* Pods_RandomMessageApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8B3225A5FA3EEDA85BE1C4B /* Pods_RandomMessageApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		083FC23E2AB95D640004E86F /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		0863A40D2AB7F0ED00553007 /* HexColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColorExtension.swift; sourceTree = "<group>"; };
 		0863A40F2AB7FAC400553007 /* SendMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageViewController.swift; sourceTree = "<group>"; };
 		0863A4112AB7FAE700553007 /* ReadMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMessageViewController.swift; sourceTree = "<group>"; };
@@ -32,9 +32,7 @@
 		086F245E2AB742DF006E10FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		086F24632AB742DF006E10FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		086F24692AB743EF006E10FB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		086F24712AB77288006E10FB /* PreviewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewExtension.swift; sourceTree = "<group>"; };
 		086F24732AB7744F006E10FB /* login.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = login.riv; sourceTree = "<group>"; };
-		08E587CA2AB7DAF200EE26BB /* WebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
 		3330A9EEC283A1BC37FA3536 /* Pods-RandomMessageApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomMessageApp.debug.xcconfig"; path = "Target Support Files/Pods-RandomMessageApp/Pods-RandomMessageApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7389564CACCFE8BD0A1AA27F /* Pods-RandomMessageApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomMessageApp.release.xcconfig"; path = "Target Support Files/Pods-RandomMessageApp/Pods-RandomMessageApp.release.xcconfig"; sourceTree = "<group>"; };
 		E8B3225A5FA3EEDA85BE1C4B /* Pods_RandomMessageApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomMessageApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +50,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		083FC23D2AB95CC20004E86F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				083FC23E2AB95D640004E86F /* APIManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		08615DF12AB8094D00C66D08 /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -61,27 +67,20 @@
 			path = Delegate;
 			sourceTree = "<group>";
 		};
-		08615DF22AB8095B00C66D08 /* LoginViewController */ = {
-			isa = PBXGroup;
-			children = (
-				086F24592AB742DE006E10FB /* LoginViewController.swift */,
-			);
-			path = LoginViewController;
-			sourceTree = "<group>";
-		};
-		08615DF32AB8098000C66D08 /* MainViewController */ = {
+		08615DF32AB8098000C66D08 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				086F24692AB743EF006E10FB /* MainViewController.swift */,
-				08E587CA2AB7DAF200EE26BB /* WebSocketManager.swift */,
+				086F24592AB742DE006E10FB /* LoginViewController.swift */,
+				0863A40F2AB7FAC400553007 /* SendMessageViewController.swift */,
+				0863A4112AB7FAE700553007 /* ReadMessageViewController.swift */,
 			);
-			path = MainViewController;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		08615DF42AB8099900C66D08 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				086F24712AB77288006E10FB /* PreviewExtension.swift */,
 				0863A40D2AB7F0ED00553007 /* HexColorExtension.swift */,
 			);
 			path = Extension;
@@ -109,12 +108,10 @@
 		086F24542AB742DE006E10FB /* RandomMessageApp */ = {
 			isa = PBXGroup;
 			children = (
+				083FC23D2AB95CC20004E86F /* Model */,
 				08615DF42AB8099900C66D08 /* Extension */,
-				08615DF32AB8098000C66D08 /* MainViewController */,
-				08615DF22AB8095B00C66D08 /* LoginViewController */,
+				08615DF32AB8098000C66D08 /* ViewController */,
 				08615DF12AB8094D00C66D08 /* Delegate */,
-				0863A40F2AB7FAC400553007 /* SendMessageViewController.swift */,
-				0863A4112AB7FAE700553007 /* ReadMessageViewController.swift */,
 				086F245E2AB742DF006E10FB /* Assets.xcassets */,
 				086F24632AB742DF006E10FB /* Info.plist */,
 			);
@@ -263,12 +260,11 @@
 				086F245A2AB742DE006E10FB /* LoginViewController.swift in Sources */,
 				086F246A2AB743EF006E10FB /* MainViewController.swift in Sources */,
 				0863A40E2AB7F0ED00553007 /* HexColorExtension.swift in Sources */,
-				086F24722AB77288006E10FB /* PreviewExtension.swift in Sources */,
+				083FC23F2AB95D650004E86F /* APIManager.swift in Sources */,
 				086F24562AB742DE006E10FB /* AppDelegate.swift in Sources */,
 				086F24582AB742DE006E10FB /* SceneDelegate.swift in Sources */,
 				0863A4102AB7FAC400553007 /* SendMessageViewController.swift in Sources */,
 				0863A4122AB7FAE700553007 /* ReadMessageViewController.swift in Sources */,
-				08E587CB2AB7DAF200EE26BB /* WebSocketManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
