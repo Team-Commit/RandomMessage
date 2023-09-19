@@ -98,6 +98,18 @@ extension MainViewController {
     
     @objc private func didTapFloatingButton() {
         isActive.toggle()
+        func testFetchData() {
+            APIManager.shared.fetchTestData { result in
+                switch result {
+                case .success(let data):
+                    print("Data received:", data)
+                case .failure(let error):
+                    print("Error:", error)
+                }
+            }
+        }
+        testFetchData()
+
     }
     
     @objc private func writeButtonTapped() {

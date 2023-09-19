@@ -67,7 +67,7 @@
 			path = Delegate;
 			sourceTree = "<group>";
 		};
-		08615DF32AB8098000C66D08 /* ViewController */ = {
+		08615DF32AB8098000C66D08 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				086F24692AB743EF006E10FB /* MainViewController.swift */,
@@ -75,15 +75,15 @@
 				0863A40F2AB7FAC400553007 /* SendMessageViewController.swift */,
 				0863A4112AB7FAE700553007 /* ReadMessageViewController.swift */,
 			);
-			path = ViewController;
+			path = Controller;
 			sourceTree = "<group>";
 		};
-		08615DF42AB8099900C66D08 /* Extension */ = {
+		08615DF42AB8099900C66D08 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				0863A40D2AB7F0ED00553007 /* HexColorExtension.swift */,
 			);
-			path = Extension;
+			path = View;
 			sourceTree = "<group>";
 		};
 		086F24492AB742DE006E10FB = {
@@ -109,8 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				083FC23D2AB95CC20004E86F /* Model */,
-				08615DF42AB8099900C66D08 /* Extension */,
-				08615DF32AB8098000C66D08 /* ViewController */,
+				08615DF42AB8099900C66D08 /* View */,
+				08615DF32AB8098000C66D08 /* Controller */,
 				08615DF12AB8094D00C66D08 /* Delegate */,
 				086F245E2AB742DF006E10FB /* Assets.xcassets */,
 				086F24632AB742DF006E10FB /* Info.plist */,
