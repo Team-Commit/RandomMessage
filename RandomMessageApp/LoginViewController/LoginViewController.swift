@@ -7,7 +7,6 @@
 
 import UIKit
 import RiveRuntime
-import SwiftUI
 import SnapKit
 import LocalAuthentication
 
@@ -60,13 +59,13 @@ extension LoginViewController{
     
     @objc func loginButtonTapped() {
         
-        guard context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) else {
+        guard context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) else {
             print("Device does not support Face ID / Touch ID.")
             return
         }
         
-        
-        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [weak self] success, authenticationError in
+        context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "인증이 필요합니다")
+ { [weak self] success, authenticationError in
             
             DispatchQueue.main.async {
                 guard success else {
@@ -74,13 +73,12 @@ extension LoginViewController{
                     return
                 }
                 
-                print("Authentication was successful.")
                 let mainVC = MainViewController()
-                mainVC.modalPresentationStyle = .fullScreen
-                mainVC.modalTransitionStyle = .crossDissolve
-                self?.present(mainVC, animated: true)
-                
-                
+                let navVC = UINavigationController(rootViewController: mainVC)
+                navVC.modalTransitionStyle = .crossDissolve
+                navVC.modalPresentationStyle = .fullScreen
+                self?.present(navVC, animated: true)
+                print("Authentication was successful.")
              }
         }
     }
@@ -138,10 +136,12 @@ extension LoginViewController {
     }
 }
 
-
-//MARK: - Preview
-struct VCPreView:PreviewProvider {
-    static var previews: some View {
-        LoginViewController().toPreview().edgesIgnoringSafeArea(.all)
+extension LoginViewController {
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alert, animated: true)
+        }
     }
 }

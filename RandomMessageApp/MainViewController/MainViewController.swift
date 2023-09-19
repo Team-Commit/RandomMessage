@@ -2,7 +2,6 @@
 import UIKit
 import SwiftUI
 import SnapKit
-import Starscream
 
 
 //MARK: - Properties
@@ -31,6 +30,7 @@ class MainViewController: UIViewController {
         button.layer.shadowRadius = 10
         button.layer.shadowOpacity = 0.3
         button.alpha = 0.0
+        button.addTarget(self, action: #selector(writeButtonTapped), for: .touchUpInside)
         return button
     }()
     private var isActive: Bool = false {
@@ -99,11 +99,13 @@ extension MainViewController {
     
     @objc private func didTapFloatingButton() {
         isActive.toggle()
-        let sendMessageVC = SendMessageVC()
-        sendMessageVC.modalTransitionStyle = .coverVertical
-        sendMessageVC.modalPresentationStyle = .popover
     }
     
+    @objc private func writeButtonTapped() {
+        let sendMessageVC = SendMessageViewController()
+        self.navigationController?.pushViewController(sendMessageVC, animated: true)
+    }
+
     private func showActionButtons() {
         popButtons()
         rotateFloatingButton()

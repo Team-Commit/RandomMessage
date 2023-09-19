@@ -1,24 +1,20 @@
 PODS:
   - RiveRuntime (5.3.0)
   - SnapKit (5.6.0)
-  - Starscream (4.0.6)
 
 DEPENDENCIES:
   - RiveRuntime
   - SnapKit (~> 5.6.0)
-  - Starscream (~> 4.0.6)
 
 SPEC REPOS:
   trunk:
     - RiveRuntime
     - SnapKit
-    - Starscream
 
 SPEC CHECKSUMS:
   RiveRuntime: 04317cd1f76e66f96f6a7de73078947947517873
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
-  Starscream: fb2c4510bebf908c62bd383bcf05e673720e91fd
 
-PODFILE CHECKSUM: 97026641b4e8834de4e68e2359cb8d21a44be323
+PODFILE CHECKSUM: d159dcf70ce5dbf693740d5186ca1b389098d834
 
 COCOAPODS: 1.12.1

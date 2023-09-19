@@ -8,7 +8,6 @@ target 'RandomMessageApp' do
   # Pods for RandomMessageApp
   pod 'RiveRuntime'
     pod 'SnapKit', '~> 5.6.0'
-pod 'Starscream', '~> 4.0.6'
 
 
 end
