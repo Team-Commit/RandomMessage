@@ -11,7 +11,6 @@ enum RequestMethod: String {
     case post = "POST"
 }
 
-// 3. APIManager Class
 class APIManager {
     
     static let shared = APIManager()
@@ -55,11 +54,42 @@ class APIManager {
     
 }
 
-// 4. Completion Handlers and Errors
 enum APIError: Error {
     case invalidURL
     case invalidResponse
     case dataDecodingError
     case dataEncodingError
     case unknownError
+}
+
+//MARK: - sendUserUUID
+extension APIManager {
+    func sendUserUUID(uuid: String, completion: @escaping (Result<String, Error>) -> Void) {
+        let endpoint = "/your_endpoint_for_uuid_handling" // Replace with your actual endpoint
+        guard let url = URL(string: baseURL + endpoint) else {
+            completion(.failure(APIError.invalidURL))
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = RequestMethod.post.rawValue
+        request.httpBody = "uuid=\(uuid)".data(using: .utf8)
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        
+        let task = session.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = data, let token = String(data: data, encoding: .utf8) else {
+                completion(.failure(APIError.dataDecodingError))
+                return
+            }
+            
+            completion(.success(token))
+        }
+        task.resume()
+    }
+
 }

@@ -1,24 +1,38 @@
 
 import UIKit
 import SnapKit
+import AVFoundation
+
 
 
 //MARK: - Properties
 class MainViewController: UIViewController {
     
+    var videoPlayer: AVPlayer?
+    var videoPlayerLayer: AVPlayerLayer?
+    var audioPlayer: AVAudioPlayer?
+    
+    
     
     private lazy var floatingButton: UIButton = {
         let button = UIButton()
         var config = UIButton.Configuration.filled()
-        config.baseBackgroundColor = .systemPink
+        config.baseBackgroundColor = .clear
         config.cornerStyle = .capsule
-        config.image = UIImage(systemName: "plus")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 20, weight: .medium))
+        let image = UIImage(systemName: "plus.circle")?
+            .withConfiguration(UIImage.SymbolConfiguration(pointSize: 30, weight: .medium))
+            .withTintColor(.blue, renderingMode: .alwaysOriginal) // Set image color to blue
+        config.image = image
         button.configuration = config
+        button.tintColor = .blue // Set button tintColor to blue
         button.layer.shadowRadius = 10
         button.layer.shadowOpacity = 0.3
+        button.layer.masksToBounds = true
         button.addTarget(self, action: #selector(didTapFloatingButton), for: .touchUpInside)
         return button
     }()
+
+
     private let writeButton: UIButton = {
         let button = UIButton()
         var config = UIButton.Configuration.filled()
@@ -32,6 +46,22 @@ class MainViewController: UIViewController {
         button.addTarget(self, action: #selector(writeButtonTapped), for: .touchUpInside)
         return button
     }()
+    
+    private let stopMusicButton: UIButton = {
+        let button = UIButton()
+        var config = UIButton.Configuration.filled()
+        config.baseBackgroundColor = .systemPink
+        config.cornerStyle = .capsule
+        config.image = UIImage(systemName: "pencil")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 20, weight: .medium))
+        button.configuration = config
+        button.layer.shadowRadius = 10
+        button.layer.shadowOpacity = 0.3
+        button.alpha = 0.0
+        button.addTarget(self, action: #selector(musicOffButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    
     private var isActive: Bool = false {
         didSet {
             showActionButtons()
@@ -51,16 +81,20 @@ extension MainViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        setupVideoBackground()
+        playMusic()
+
         setupUI()
-        
-        
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        videoPlayerLayer?.frame = view.bounds
+        
         floatingButton.frame = CGRect(x: view.frame.size.width - 60 - 8 - 20, y: view.frame.size.height - 60 - 8 - 40, width: 60, height: 60)
         writeButton.frame = CGRect(x: view.frame.size.width - 60 - 8 - 20, y: view.frame.size.height - 60 - 80 - 8 - 40, width: 60, height: 60)
+        stopMusicButton.frame = CGRect(x: view.frame.size.width - 60 - 8 - 20, y: view.frame.size.height - 60 - 80 - 8 - 40, width: 60, height: 60)
+                                      
     }
 }
 
@@ -83,13 +117,6 @@ extension MainViewController {
 extension MainViewController {
     func setupConstraints() {
         
-        floatingButton.snp.makeConstraints { make in
-            make.right.equalToSuperview().offset(-20)
-            make.bottom.equalToSuperview().offset(-40)
-            make.width.equalTo(60)
-            make.height.equalTo(60)
-        }
-        
     }
 }
 
@@ -109,17 +136,28 @@ extension MainViewController {
             }
         }
         testFetchData()
-
+        
     }
     
     @objc private func writeButtonTapped() {
         let sendMessageVC = SendMessageViewController()
         self.navigationController?.pushViewController(sendMessageVC, animated: true)
+        func stopMusic() {
+            audioPlayer?.stop()
+        }
+        audioPlayer?.stop()
     }
+    
+    @objc private func musicOffButtonTapped(){
+       
 
+    }
+    
+    
     private func showActionButtons() {
         popButtons()
         rotateFloatingButton()
+        
     }
     
     private func popButtons() {
@@ -150,5 +188,51 @@ extension MainViewController {
         animation.isRemovedOnCompletion = false
         floatingButton.layer.add(animation, forKey: nil)
     }
+    
+}
+
+
+//MARK: - Background Player
+extension MainViewController {
+    func setupVideoBackground() {
+        guard let path = Bundle.main.path(forResource: "mainBackground", ofType: "mp4") else {
+            debugPrint("Video not found")
+            return
+        }
+        videoPlayer = AVPlayer(url: URL(fileURLWithPath: path))
+        videoPlayerLayer = AVPlayerLayer(player: videoPlayer)
+        videoPlayerLayer?.frame = view.frame
+        videoPlayerLayer?.videoGravity = .resizeAspectFill
+        videoPlayer?.isMuted = true
+        videoPlayer?.play()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(loopVideo), name: .AVPlayerItemDidPlayToEndTime, object: nil)
+        
+        view.layer.insertSublayer(videoPlayerLayer!, at: 0)
+    }
+    
+    @objc func loopVideo() {
+        videoPlayer?.seek(to: CMTime.zero)
+        videoPlayer?.play()
+    }
+    
+}
+
+//MARK: - Background Music
+extension MainViewController {
+    func playMusic() {
+        guard let url = Bundle.main.url(forResource: "summer-surf-120252", withExtension: "mp3") else { return }
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.play()
+        } catch {
+            print("Error playing audio: \(error.localizedDescription)")
+        }
+    }
 
 }
+
+
+
+
+

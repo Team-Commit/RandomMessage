@@ -17,6 +17,8 @@
 		086F245F2AB742DF006E10FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 086F245E2AB742DF006E10FB /* Assets.xcassets */; };
 		086F246A2AB743EF006E10FB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086F24692AB743EF006E10FB /* MainViewController.swift */; };
 		086F24742AB7744F006E10FB /* login.riv in Resources */ = {isa = PBXBuildFile; fileRef = 086F24732AB7744F006E10FB /* login.riv */; };
+		08A5629F2AB9BF2E00B2685E /* mainBackground.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 08A5629E2AB9BF2E00B2685E /* mainBackground.mp4 */; };
+		08A697BB2ABA9F950052EBB4 /* summer-surf-120252.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 08A697BA2ABA9F950052EBB4 /* summer-surf-120252.mp3 */; };
 		6B31E203150012D539D02E98 /* Pods_RandomMessageApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8B3225A5FA3EEDA85BE1C4B /* Pods_RandomMessageApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,8 @@
 		086F24632AB742DF006E10FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		086F24692AB743EF006E10FB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		086F24732AB7744F006E10FB /* login.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = login.riv; sourceTree = "<group>"; };
+		08A5629E2AB9BF2E00B2685E /* mainBackground.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = mainBackground.mp4; path = ../../../Downloads/mainBackground.mp4; sourceTree = "<group>"; };
+		08A697BA2ABA9F950052EBB4 /* summer-surf-120252.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "summer-surf-120252.mp3"; path = "../../../Downloads/summer-surf-120252.mp3"; sourceTree = "<group>"; };
 		3330A9EEC283A1BC37FA3536 /* Pods-RandomMessageApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomMessageApp.debug.xcconfig"; path = "Target Support Files/Pods-RandomMessageApp/Pods-RandomMessageApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7389564CACCFE8BD0A1AA27F /* Pods-RandomMessageApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomMessageApp.release.xcconfig"; path = "Target Support Files/Pods-RandomMessageApp/Pods-RandomMessageApp.release.xcconfig"; sourceTree = "<group>"; };
 		E8B3225A5FA3EEDA85BE1C4B /* Pods_RandomMessageApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomMessageApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,7 +93,7 @@
 		086F24492AB742DE006E10FB = {
 			isa = PBXGroup;
 			children = (
-				086F246B2AB76E19006E10FB /* RiveAssets */,
+				086F246B2AB76E19006E10FB /* AssetsFolder */,
 				086F24542AB742DE006E10FB /* RandomMessageApp */,
 				086F24532AB742DE006E10FB /* Products */,
 				E21212930FA0112A7606FAA8 /* Pods */,
@@ -118,12 +122,14 @@
 			path = RandomMessageApp;
 			sourceTree = "<group>";
 		};
-		086F246B2AB76E19006E10FB /* RiveAssets */ = {
+		086F246B2AB76E19006E10FB /* AssetsFolder */ = {
 			isa = PBXGroup;
 			children = (
 				086F24732AB7744F006E10FB /* login.riv */,
+				08A5629E2AB9BF2E00B2685E /* mainBackground.mp4 */,
+				08A697BA2ABA9F950052EBB4 /* summer-surf-120252.mp3 */,
 			);
-			path = RiveAssets;
+			path = AssetsFolder;
 			sourceTree = "<group>";
 		};
 		DBD75B80C1E2985C299CCF2C /* Frameworks */ = {
@@ -203,8 +209,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08A5629F2AB9BF2E00B2685E /* mainBackground.mp4 in Resources */,
 				086F245F2AB742DF006E10FB /* Assets.xcassets in Resources */,
 				086F24742AB7744F006E10FB /* login.riv in Resources */,
+				08A697BB2ABA9F950052EBB4 /* summer-surf-120252.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,10 +404,11 @@
 				DEVELOPMENT_TEAM = VGM28F2FH7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RandomMessageApp/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = hi;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -428,10 +437,11 @@
 				DEVELOPMENT_TEAM = VGM28F2FH7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RandomMessageApp/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = hi;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

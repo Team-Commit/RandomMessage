@@ -64,26 +64,52 @@ extension LoginViewController{
             return
         }
         
-        context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "인증이 필요합니다")
- { [weak self] success, authenticationError in
-            
+        context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "인증이 필요합니다") { [weak self] success, authenticationError in
             DispatchQueue.main.async {
                 guard success else {
                     print("Authentication failed.")
                     return
                 }
                 
-                let mainVC = MainViewController()
-                let navVC = UINavigationController(rootViewController: mainVC)
-                navVC.modalTransitionStyle = .crossDissolve
-                navVC.modalPresentationStyle = .fullScreen
-                self?.present(navVC, animated: true)
-                print("Authentication was successful.")
-             }
+                // Generate UUID
+                let userUUID = UUID().uuidString
+                
+                // Send UUID to server
+                APIManager.shared.sendUserUUID(uuid: userUUID) { result in
+                    switch result {
+                    case .success(let token):
+                        // Store token in Keychain
+                        self?.storeTokenInKeychain(token: token)
+                        
+                        let mainVC = MainViewController()
+                        let navVC = UINavigationController(rootViewController: mainVC)
+                        navVC.modalTransitionStyle = .crossDissolve
+                        navVC.modalPresentationStyle = .fullScreen
+                        self?.present(navVC, animated: true)
+                        print("Authentication was successful.")
+                        
+                    case .failure(let error):
+                        print("Error: \(error)")
+                    }
+                }
+            }
         }
     }
+    
+    func storeTokenInKeychain(token: String) {
+        let tokenData = Data(token.utf8)
+        let keychainQuery: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrAccount as String: "userToken",
+            kSecValueData as String: tokenData
+        ]
+        
+        SecItemAdd(keychainQuery as CFDictionary, nil)
+    }
 }
-   
+
+
+
 
 //MARK: - View Cycle
 
@@ -145,3 +171,5 @@ extension LoginViewController {
         }
     }
 }
+
+
