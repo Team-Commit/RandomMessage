@@ -19,6 +19,12 @@
 		087B2B522ABB04AB00C5BA01 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087B2B512ABB04AB00C5BA01 /* Data.swift */; };
 		087B2B542ABB05B800C5BA01 /* mainBackground.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 087B2B532ABB05B800C5BA01 /* mainBackground.mp4 */; };
 		08A697BB2ABA9F950052EBB4 /* summer-surf-120252.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 08A697BA2ABA9F950052EBB4 /* summer-surf-120252.mp3 */; };
+		08F15C6C2ABBF81C00BC335F /* ViewTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F15C6B2ABBF81B00BC335F /* ViewTransition.swift */; };
+		08F15C6E2ABBFB3F00BC335F /* crash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 08F15C6D2ABBFB3F00BC335F /* crash.mp3 */; };
+		08F15C702ABBFF3100BC335F /* GreetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F15C6F2ABBFF3100BC335F /* GreetViewController.swift */; };
+		08F15C722ABC002D00BC335F /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F15C712ABC002D00BC335F /* SoundEffect.swift */; };
+		08F15C742ABC025500BC335F /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F15C732ABC025500BC335F /* VideoPlayer.swift */; };
+		08F15C762ABC09A600BC335F /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F15C752ABC09A600BC335F /* LaunchScreenViewController.swift */; };
 		473D3F310E4E1E871D206F88 /* Pods_RandomMessageApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EE43780A0674B4DAED9C37 /* Pods_RandomMessageApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +43,12 @@
 		087B2B512ABB04AB00C5BA01 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		087B2B532ABB05B800C5BA01 /* mainBackground.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = mainBackground.mp4; path = RandomMessageApp/AssetsFolder/mainBackground.mp4; sourceTree = SOURCE_ROOT; };
 		08A697BA2ABA9F950052EBB4 /* summer-surf-120252.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "summer-surf-120252.mp3"; sourceTree = "<group>"; };
+		08F15C6B2ABBF81B00BC335F /* ViewTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTransition.swift; sourceTree = "<group>"; };
+		08F15C6D2ABBFB3F00BC335F /* crash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = crash.mp3; path = ../../../../Downloads/crash.mp3; sourceTree = "<group>"; };
+		08F15C6F2ABBFF3100BC335F /* GreetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetViewController.swift; sourceTree = "<group>"; };
+		08F15C712ABC002D00BC335F /* SoundEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffect.swift; sourceTree = "<group>"; };
+		08F15C732ABC025500BC335F /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
+		08F15C752ABC09A600BC335F /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		1778C9AE28B30D86B75E6150 /* Pods-RandomMessageApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomMessageApp.debug.xcconfig"; path = "Target Support Files/Pods-RandomMessageApp/Pods-RandomMessageApp.debug.xcconfig"; sourceTree = "<group>"; };
 		58EE43780A0674B4DAED9C37 /* Pods_RandomMessageApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomMessageApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F30938CE460FACBB7B576FC5 /* Pods-RandomMessageApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomMessageApp.release.xcconfig"; path = "Target Support Files/Pods-RandomMessageApp/Pods-RandomMessageApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -63,13 +75,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		08615DF12AB8094D00C66D08 /* Delegate */ = {
+		08615DF12AB8094D00C66D08 /* Launch */ = {
 			isa = PBXGroup;
 			children = (
+				08F15C752ABC09A600BC335F /* LaunchScreenViewController.swift */,
 				086F24552AB742DE006E10FB /* AppDelegate.swift */,
 				086F24572AB742DE006E10FB /* SceneDelegate.swift */,
 			);
-			path = Delegate;
+			path = Launch;
 			sourceTree = "<group>";
 		};
 		08615DF32AB8098000C66D08 /* Controller */ = {
@@ -79,6 +92,7 @@
 				086F24592AB742DE006E10FB /* LoginViewController.swift */,
 				0863A40F2AB7FAC400553007 /* SendMessageViewController.swift */,
 				0863A4112AB7FAE700553007 /* ReadMessageViewController.swift */,
+				08F15C6F2ABBFF3100BC335F /* GreetViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -86,6 +100,9 @@
 		08615DF42AB8099900C66D08 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				08F15C6B2ABBF81B00BC335F /* ViewTransition.swift */,
+				08F15C712ABC002D00BC335F /* SoundEffect.swift */,
+				08F15C732ABC025500BC335F /* VideoPlayer.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -115,7 +132,7 @@
 				083FC23D2AB95CC20004E86F /* Model */,
 				08615DF42AB8099900C66D08 /* View */,
 				08615DF32AB8098000C66D08 /* Controller */,
-				08615DF12AB8094D00C66D08 /* Delegate */,
+				08615DF12AB8094D00C66D08 /* Launch */,
 				086F245E2AB742DF006E10FB /* Assets.xcassets */,
 				086F24632AB742DF006E10FB /* Info.plist */,
 			);
@@ -128,6 +145,7 @@
 				086F24732AB7744F006E10FB /* login.riv */,
 				087B2B532ABB05B800C5BA01 /* mainBackground.mp4 */,
 				08A697BA2ABA9F950052EBB4 /* summer-surf-120252.mp3 */,
+				08F15C6D2ABBFB3F00BC335F /* crash.mp3 */,
 			);
 			name = AssetsFolder;
 			path = RandomMessageApp/AssetsFolder;
@@ -212,6 +230,7 @@
 			files = (
 				086F245F2AB742DF006E10FB /* Assets.xcassets in Resources */,
 				086F24742AB7744F006E10FB /* login.riv in Resources */,
+				08F15C6E2ABBFB3F00BC335F /* crash.mp3 in Resources */,
 				087B2B542ABB05B800C5BA01 /* mainBackground.mp4 in Resources */,
 				08A697BB2ABA9F950052EBB4 /* summer-surf-120252.mp3 in Resources */,
 			);
@@ -266,13 +285,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08F15C702ABBFF3100BC335F /* GreetViewController.swift in Sources */,
+				08F15C762ABC09A600BC335F /* LaunchScreenViewController.swift in Sources */,
 				086F245A2AB742DE006E10FB /* LoginViewController.swift in Sources */,
 				086F246A2AB743EF006E10FB /* MainViewController.swift in Sources */,
 				083FC23F2AB95D650004E86F /* APIManager.swift in Sources */,
 				086F24562AB742DE006E10FB /* AppDelegate.swift in Sources */,
 				086F24582AB742DE006E10FB /* SceneDelegate.swift in Sources */,
 				0863A4102AB7FAC400553007 /* SendMessageViewController.swift in Sources */,
+				08F15C6C2ABBF81C00BC335F /* ViewTransition.swift in Sources */,
+				08F15C742ABC025500BC335F /* VideoPlayer.swift in Sources */,
 				087B2B522ABB04AB00C5BA01 /* Data.swift in Sources */,
+				08F15C722ABC002D00BC335F /* SoundEffect.swift in Sources */,
 				0863A4122AB7FAE700553007 /* ReadMessageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

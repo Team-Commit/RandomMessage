@@ -18,6 +18,7 @@ class LoginViewController: UIViewController {
     var error: NSError? = nil
     let reason = "Please authenticate yourself to proceed."
     
+
     private lazy var riveView: RiveView = {
         let view = RiveView()
         return view
@@ -73,17 +74,19 @@ extension LoginViewController{
                     userUUID = UUID().uuidString
                     APIManager.storeUUIDInKeychain(uuid: userUUID!)
                 }
+                print("\(userUUID!)")
+                self?.presentGreetVC()
+
                 
-                APIManager.shared.requestTokenWithUUID(uuid: userUUID ?? "") { result in
-                    switch result {
-                    case .success(let token):
-                        APIManager.storeTokenInKeychain(token: token)
-                    case .failure(let error):
-                        print("Error fetching token:", error.localizedDescription)
-                        self?.showAlert(title: "Error", message: "Failed to fetch token from server.")
-                    }
-                }
-                
+//                APIManager.shared.requestTokenWithUUID(uuid: userUUID ?? "") { result in
+//                    switch result {
+//                    case .success(let token):
+//                        APIManager.storeTokenInKeychain(token: token)
+//                    case .failure(let error):
+//                        print("Error fetching token:", error.localizedDescription)
+//                        self?.showAlert(title: "Error", message: "Failed to fetch token from server.")
+//                    }
+//                }
             }
         }
     }
@@ -99,6 +102,8 @@ extension LoginViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        //Rive Background
         let riveView = simpleVM.createRiveView()
         view.addSubview(riveView)
         let width: CGFloat = 1000
@@ -106,6 +111,8 @@ extension LoginViewController {
         let x: CGFloat = (view.bounds.width - width) / 2
         let y: CGFloat = (view.bounds.height - height) / 2
         riveView.frame = CGRect(x: x, y: y, width: width, height: height)
+        
+        //setup UI
         setupUI()
     }
 }
@@ -113,15 +120,12 @@ extension LoginViewController {
 
 //MARK: - Setup UI
 extension LoginViewController {
+    
     func setupUI() {
         view.addSubview(loginButton)
         view.addSubview(label)
-        setupConstraints()
-        
+        self.setupConstraints()
     }
-    
-    
-    //MARK: - Constraints
     
     func setupConstraints() {
         
@@ -146,20 +150,6 @@ extension LoginViewController {
 
 
 
-//MARK: - Navigate MainViewController
-extension LoginViewController {
-    
-    func presentMainVC() {
-        let mainVC = MainViewController()
-        let navVC = UINavigationController(rootViewController: mainVC)
-        navVC.modalTransitionStyle = .crossDissolve
-        navVC.modalPresentationStyle = .fullScreen
-        self.present(navVC, animated: true)
-        print("Authentication was successful.")
-    }
-}
-
-
 
 //MARK: - Alert
 extension LoginViewController {
@@ -171,5 +161,18 @@ extension LoginViewController {
         }
     }
 }
+
+
+//MARK: - Transition Effect
+extension LoginViewController {
+    func presentGreetVC() {
+        let greetVC = GreetViewController()
+        let fadeTransitioningDelegate = FadeTransitioningDelegate()
+        greetVC.modalPresentationStyle = .custom
+           greetVC.transitioningDelegate = fadeTransitioningDelegate
+           present(greetVC, animated: true)
+    }
+}
+
 
 

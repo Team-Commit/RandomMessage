@@ -10,7 +10,8 @@ class MainViewController: UIViewController {
     
     var videoPlayer: AVPlayer?
     var videoPlayerLayer: AVPlayerLayer?
-    var audioPlayer: AVAudioPlayer?
+    
+    private let soundEffect = SoundEffect()
     
     private lazy var floatingButton: UIButton = {
         let button = UIButton()
@@ -78,7 +79,7 @@ extension MainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupVideoBackground()
-        playMusic()
+        self.soundEffect.playOceanSound()
         
         setupUI()
     }
@@ -101,8 +102,6 @@ extension MainViewController {
         view.addSubview(floatingButton)
         view.addSubview(writeButton)
         view.addSubview(stopMusicButton)
-        
-        
         setupConstraints()
         
     }
@@ -120,38 +119,33 @@ extension MainViewController {
     
     @objc private func didTapFloatingButton() {
         isActive.toggle()
-        func testFetchData() {
-            APIManager.shared.fetchTestData { result in
-                switch result {
-                case .success(let data):
-                    print("Data received:", data)
-                case .failure(let error):
-                    print("Error:", error)
-                }
-            }
-        }
-        testFetchData()
+//        func testFetchData() {
+//            APIManager.shared.fetchTestData { result in
+//                switch result {
+//                case .success(let data):
+//                    print("Data received:", data)
+//                case .failure(let error):
+//                    print("Error:", error)
+//                }
+//            }
+//        }
+//        testFetchData()
         
     }
     
     @objc private func writeButtonTapped() {
         let sendMessageVC = SendMessageViewController()
         self.navigationController?.pushViewController(sendMessageVC, animated: true)
-        func stopMusic() {
-            audioPlayer?.stop()
-        }
-        audioPlayer?.stop()
     }
     
     @objc private func musicOffButtonTapped() {
-        audioPlayer?.stop()
+        self.soundEffect.oceanAudioPlayer?.stop()
     }
     
     
     private func showActionButtons() {
         popButtons()
         rotateFloatingButton()
-        
     }
     
     private func popButtons() {
@@ -237,15 +231,7 @@ extension MainViewController {
 
 //MARK: - Background Music
 extension MainViewController {
-    func playMusic() {
-        guard let url = Bundle.main.url(forResource: "summer-surf-120252", withExtension: "mp3") else { return }
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: url)
-            audioPlayer?.play()
-        } catch {
-            print("Error playing audio: \(error.localizedDescription)")
-        }
-    }
+   
     
 }
 

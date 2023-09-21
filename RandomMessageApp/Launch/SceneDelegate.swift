@@ -10,14 +10,45 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var launchScreenWindow: UIWindow?
 
+
+//    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+//        guard let windowScene = (scene as? UIWindowScene) else { return }
+//
+//        self.window = UIWindow(windowScene: windowScene)
+//        let rootVC = LoginViewController()
+//        window?.rootViewController = rootVC
+//        window?.makeKeyAndVisible()
+//    }
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
+        // Main window setup
         self.window = UIWindow(windowScene: windowScene)
         let rootVC = LoginViewController()
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
+
+        // Launch screen window setup
+        launchScreenWindow = UIWindow(windowScene: windowScene)
+        launchScreenWindow?.rootViewController = LaunchScreenViewController()
+        launchScreenWindow?.windowLevel = .alert + 1
+        launchScreenWindow?.makeKeyAndVisible()
+
+        // Dismiss the launch screen after a delay
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.dismissLaunchScreen()
+        }
+    }
+    
+    func dismissLaunchScreen() {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.launchScreenWindow?.alpha = 0
+        }) { _ in
+            self.launchScreenWindow = nil
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

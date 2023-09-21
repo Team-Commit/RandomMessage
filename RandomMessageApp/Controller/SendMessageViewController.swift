@@ -12,20 +12,28 @@ import BonMot
 //MARK: - Properties
 class SendMessageViewController: UIViewController {
     
-    private let messageTextView: UITextView = {
+    private lazy var messageTextView: UITextView = {
         let textView = UITextView()
         textView.backgroundColor = .clear
-        textView.font = UIFont.systemFont(ofSize: 16)
+        textView.font = UIFont.systemFont(ofSize: 50)
         textView.autocorrectionType = .no
         textView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         return textView
     }()
     
-    private lazy var background: UIImageView = {
+    private lazy var letterView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "Home")
         imageView.contentMode = .scaleAspectFill
         return imageView
+    }()
+    
+    private lazy var sendButton:UIButton = {
+        let button = UIButton()
+        button.layer.borderWidth = 3
+        button.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        button.setTitle("Send", for: .normal)
+        return button
     }()
 }
 
@@ -35,9 +43,7 @@ extension SendMessageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backButtonTapped))
-        
+        setupNavButton()
         setupTextView()
     }
     
@@ -46,20 +52,33 @@ extension SendMessageViewController {
     }
     
     func setupTextView() {
+        
+        
     }
 }
+
+
+extension SendMessageViewController {
+    func setupNavButton() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backButtonTapped))
+        
+        navigationItem.rightBarButtonItem
+    }
+}
+
+
 
 //MARK: - Setup UI
 
 private extension SendMessageViewController {
     func setupUI() {
         
-        
-        view.addSubview(background)
+        view.backgroundColor = .white
+        view.addSubview(letterView)
         view.addSubview(messageTextView)
+        view.addSubview(sendButton)
         messageTextView.delegate = self
         messageTextView.translatesAutoresizingMaskIntoConstraints = false
-        
         setupConstraints()
         
     }
@@ -69,17 +88,22 @@ private extension SendMessageViewController {
 //MARK: - Constraints
 private extension SendMessageViewController {
     func setupConstraints() {
-        background.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        letterView.snp.makeConstraints { make in
+            make.width.equalToSuperview().multipliedBy(0.8)
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().multipliedBy(0.2)
+            make.height.equalTo(letterView.snp.width)
         }
         
-        NSLayoutConstraint.activate([
-            messageTextView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            messageTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            messageTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-            messageTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -15)
-        ])
+        
+        sendButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(messageTextView.snp.bottom).offset(20)
+            make.width.equalToSuperview().multipliedBy(0.8)
+            make.height.equalTo(50) // Set to desired button height
+        }
     }
+    
     
 }
 
