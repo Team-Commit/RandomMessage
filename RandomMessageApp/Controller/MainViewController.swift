@@ -12,8 +12,6 @@ class MainViewController: UIViewController {
     var videoPlayerLayer: AVPlayerLayer?
     var audioPlayer: AVAudioPlayer?
     
-    
-    
     private lazy var floatingButton: UIButton = {
         let button = UIButton()
         var config = UIButton.Configuration.filled()
@@ -24,15 +22,15 @@ class MainViewController: UIViewController {
             .withTintColor(.blue, renderingMode: .alwaysOriginal) // Set image color to blue
         config.image = image
         button.configuration = config
-        button.tintColor = .blue // Set button tintColor to blue
+        button.tintColor = .blue
         button.layer.shadowRadius = 10
         button.layer.shadowOpacity = 0.3
         button.layer.masksToBounds = true
         button.addTarget(self, action: #selector(didTapFloatingButton), for: .touchUpInside)
         return button
     }()
-
-
+    
+    
     private let writeButton: UIButton = {
         let button = UIButton()
         var config = UIButton.Configuration.filled()
@@ -68,8 +66,6 @@ class MainViewController: UIViewController {
         }
     }
     private var animation: UIViewPropertyAnimator?
-    
-    
 }
 
 
@@ -83,18 +79,16 @@ extension MainViewController {
         super.viewDidLoad()
         setupVideoBackground()
         playMusic()
-
+        
         setupUI()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         videoPlayerLayer?.frame = view.bounds
-        
         floatingButton.frame = CGRect(x: view.frame.size.width - 60 - 8 - 20, y: view.frame.size.height - 60 - 8 - 40, width: 60, height: 60)
         writeButton.frame = CGRect(x: view.frame.size.width - 60 - 8 - 20, y: view.frame.size.height - 60 - 80 - 8 - 40, width: 60, height: 60)
-        stopMusicButton.frame = CGRect(x: view.frame.size.width - 60 - 8 - 20, y: view.frame.size.height - 60 - 80 - 8 - 40, width: 60, height: 60)
-                                      
+        stopMusicButton.frame = CGRect(x: view.frame.size.width - 60 - 8 - 20, y: view.frame.size.height - 60 - 160 - 8 - 40, width: 60, height: 60)
     }
 }
 
@@ -106,6 +100,7 @@ extension MainViewController {
     func setupUI() {
         view.addSubview(floatingButton)
         view.addSubview(writeButton)
+        view.addSubview(stopMusicButton)
         
         
         setupConstraints()
@@ -148,9 +143,8 @@ extension MainViewController {
         audioPlayer?.stop()
     }
     
-    @objc private func musicOffButtonTapped(){
-       
-
+    @objc private func musicOffButtonTapped() {
+        audioPlayer?.stop()
     }
     
     
@@ -176,6 +170,29 @@ extension MainViewController {
             }
         }
     }
+    
+//    private func popButtons() {
+//        let buttonAnimations:popButtons [(UIButton, CGFloat)] = [
+//            (writeButton, 1.0),
+//            (stopMusicButton, 1.5)
+//        ]
+//
+//        for (button, delay) in buttonAnimations {
+//            if isActive {
+//                button.layer.transform = CATransform3DMakeScale(0.4, 0.4, 1)
+//                UIView.animate(withDuration: 0.3, delay: delay * 0.2, usingSpringWithDamping: 0.55, initialSpringVelocity: 0.3, options: [.curveEaseInOut], animations: {
+//                    button.layer.transform = CATransform3DIdentity
+//                    button.alpha = 1.0
+//                })
+//            } else {
+//                UIView.animate(withDuration: 0.15, delay: delay * 0.2, options: []) {
+//                    button.layer.transform = CATransform3DMakeScale(0.4, 0.4, 0.1)
+//                    button.alpha = 0.0
+//                }
+//            }
+//        }
+//    }
+    
     
     private func rotateFloatingButton() {
         let animation = CABasicAnimation(keyPath: "transform.rotation.z")
@@ -229,7 +246,7 @@ extension MainViewController {
             print("Error playing audio: \(error.localizedDescription)")
         }
     }
-
+    
 }
 
 

@@ -6,8 +6,7 @@ target 'RandomMessageApp' do
   use_frameworks!
 
   # Pods for RandomMessageApp
+  pod 'SnapKit', '~> 5.6.0'
+  pod 'BonMot'
   pod 'RiveRuntime'
-    pod 'SnapKit', '~> 5.6.0'
-
-
 end

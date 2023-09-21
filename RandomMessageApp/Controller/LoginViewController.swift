@@ -11,14 +11,13 @@ import SnapKit
 import LocalAuthentication
 
 
-
 //MARK: - Properties
 class LoginViewController: UIViewController {
     let simpleVM = RiveViewModel(fileName: "login")
     let context = LAContext()
     var error: NSError? = nil
     let reason = "Please authenticate yourself to proceed."
-
+    
     private lazy var riveView: RiveView = {
         let view = RiveView()
         return view
@@ -52,10 +51,9 @@ class LoginViewController: UIViewController {
     
 }
 
-//MARK: - Button Action
+//MARK: - Button Action: Login
 
 extension LoginViewController{
-    
     
     @objc func loginButtonTapped() {
         
@@ -70,41 +68,24 @@ extension LoginViewController{
                     print("Authentication failed.")
                     return
                 }
+                var userUUID: String? = APIManager.getUUIDFromKeychain()
+                if userUUID == nil {
+                    userUUID = UUID().uuidString
+                    APIManager.storeUUIDInKeychain(uuid: userUUID!)
+                }
                 
-                // Generate UUID
-                let userUUID = UUID().uuidString
-                
-                // Send UUID to server
-                APIManager.shared.sendUserUUID(uuid: userUUID) { result in
+                APIManager.shared.requestTokenWithUUID(uuid: userUUID ?? "") { result in
                     switch result {
                     case .success(let token):
-                        // Store token in Keychain
-                        self?.storeTokenInKeychain(token: token)
-                        
-                        let mainVC = MainViewController()
-                        let navVC = UINavigationController(rootViewController: mainVC)
-                        navVC.modalTransitionStyle = .crossDissolve
-                        navVC.modalPresentationStyle = .fullScreen
-                        self?.present(navVC, animated: true)
-                        print("Authentication was successful.")
-                        
+                        APIManager.storeTokenInKeychain(token: token)
                     case .failure(let error):
-                        print("Error: \(error)")
+                        print("Error fetching token:", error.localizedDescription)
+                        self?.showAlert(title: "Error", message: "Failed to fetch token from server.")
                     }
                 }
+                
             }
         }
-    }
-    
-    func storeTokenInKeychain(token: String) {
-        let tokenData = Data(token.utf8)
-        let keychainQuery: [String: Any] = [
-            kSecClass as String: kSecClassGenericPassword,
-            kSecAttrAccount as String: "userToken",
-            kSecValueData as String: tokenData
-        ]
-        
-        SecItemAdd(keychainQuery as CFDictionary, nil)
     }
 }
 
@@ -116,7 +97,7 @@ extension LoginViewController{
 extension LoginViewController {
     
     override func viewDidLoad() {
-
+        
         super.viewDidLoad()
         let riveView = simpleVM.createRiveView()
         view.addSubview(riveView)
@@ -136,6 +117,7 @@ extension LoginViewController {
         view.addSubview(loginButton)
         view.addSubview(label)
         setupConstraints()
+        
     }
     
     
@@ -144,24 +126,42 @@ extension LoginViewController {
     func setupConstraints() {
         
         label.snp.makeConstraints { make in
-              make.centerX.equalToSuperview()
-              make.top.equalToSuperview().offset(100)
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(100)
             make.height.equalTo(50)
             make.width.equalTo(200)
-
-             
-          }
             
+            
+        }
+        
         loginButton.snp.makeConstraints { make in
-              make.centerX.equalToSuperview()
-              make.bottom.equalToSuperview().offset(-100)
-              make.height.equalTo(50)
-              make.width.equalTo(200)
-          }
+            make.centerX.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-100)
+            make.height.equalTo(50)
+            make.width.equalTo(200)
+        }
         
     }
 }
 
+
+
+//MARK: - Navigate MainViewController
+extension LoginViewController {
+    
+    func presentMainVC() {
+        let mainVC = MainViewController()
+        let navVC = UINavigationController(rootViewController: mainVC)
+        navVC.modalTransitionStyle = .crossDissolve
+        navVC.modalPresentationStyle = .fullScreen
+        self.present(navVC, animated: true)
+        print("Authentication was successful.")
+    }
+}
+
+
+
+//MARK: - Alert
 extension LoginViewController {
     private func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

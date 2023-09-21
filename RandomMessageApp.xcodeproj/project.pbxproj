@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		083FC23F2AB95D650004E86F /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083FC23E2AB95D640004E86F /* APIManager.swift */; };
-		0863A40E2AB7F0ED00553007 /* HexColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0863A40D2AB7F0ED00553007 /* HexColorExtension.swift */; };
 		0863A4102AB7FAC400553007 /* SendMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0863A40F2AB7FAC400553007 /* SendMessageViewController.swift */; };
 		0863A4122AB7FAE700553007 /* ReadMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0863A4112AB7FAE700553007 /* ReadMessageViewController.swift */; };
 		086F24562AB742DE006E10FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086F24552AB742DE006E10FB /* AppDelegate.swift */; };
@@ -17,14 +16,14 @@
 		086F245F2AB742DF006E10FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 086F245E2AB742DF006E10FB /* Assets.xcassets */; };
 		086F246A2AB743EF006E10FB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086F24692AB743EF006E10FB /* MainViewController.swift */; };
 		086F24742AB7744F006E10FB /* login.riv in Resources */ = {isa = PBXBuildFile; fileRef = 086F24732AB7744F006E10FB /* login.riv */; };
-		08A5629F2AB9BF2E00B2685E /* mainBackground.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 08A5629E2AB9BF2E00B2685E /* mainBackground.mp4 */; };
+		087B2B522ABB04AB00C5BA01 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087B2B512ABB04AB00C5BA01 /* Data.swift */; };
+		087B2B542ABB05B800C5BA01 /* mainBackground.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 087B2B532ABB05B800C5BA01 /* mainBackground.mp4 */; };
 		08A697BB2ABA9F950052EBB4 /* summer-surf-120252.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 08A697BA2ABA9F950052EBB4 /* summer-surf-120252.mp3 */; };
-		6B31E203150012D539D02E98 /* Pods_RandomMessageApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8B3225A5FA3EEDA85BE1C4B /* Pods_RandomMessageApp.framework */; };
+		473D3F310E4E1E871D206F88 /* Pods_RandomMessageApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EE43780A0674B4DAED9C37 /* Pods_RandomMessageApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		083FC23E2AB95D640004E86F /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		0863A40D2AB7F0ED00553007 /* HexColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColorExtension.swift; sourceTree = "<group>"; };
 		0863A40F2AB7FAC400553007 /* SendMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageViewController.swift; sourceTree = "<group>"; };
 		0863A4112AB7FAE700553007 /* ReadMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMessageViewController.swift; sourceTree = "<group>"; };
 		086F24522AB742DE006E10FB /* RandomMessageApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomMessageApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,11 +34,12 @@
 		086F24632AB742DF006E10FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		086F24692AB743EF006E10FB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		086F24732AB7744F006E10FB /* login.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = login.riv; sourceTree = "<group>"; };
-		08A5629E2AB9BF2E00B2685E /* mainBackground.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = mainBackground.mp4; path = ../../../Downloads/mainBackground.mp4; sourceTree = "<group>"; };
-		08A697BA2ABA9F950052EBB4 /* summer-surf-120252.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "summer-surf-120252.mp3"; path = "../../../Downloads/summer-surf-120252.mp3"; sourceTree = "<group>"; };
-		3330A9EEC283A1BC37FA3536 /* Pods-RandomMessageApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomMessageApp.debug.xcconfig"; path = "Target Support Files/Pods-RandomMessageApp/Pods-RandomMessageApp.debug.xcconfig"; sourceTree = "<group>"; };
-		7389564CACCFE8BD0A1AA27F /* Pods-RandomMessageApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomMessageApp.release.xcconfig"; path = "Target Support Files/Pods-RandomMessageApp/Pods-RandomMessageApp.release.xcconfig"; sourceTree = "<group>"; };
-		E8B3225A5FA3EEDA85BE1C4B /* Pods_RandomMessageApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomMessageApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		087B2B512ABB04AB00C5BA01 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		087B2B532ABB05B800C5BA01 /* mainBackground.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = mainBackground.mp4; path = RandomMessageApp/AssetsFolder/mainBackground.mp4; sourceTree = SOURCE_ROOT; };
+		08A697BA2ABA9F950052EBB4 /* summer-surf-120252.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "summer-surf-120252.mp3"; sourceTree = "<group>"; };
+		1778C9AE28B30D86B75E6150 /* Pods-RandomMessageApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomMessageApp.debug.xcconfig"; path = "Target Support Files/Pods-RandomMessageApp/Pods-RandomMessageApp.debug.xcconfig"; sourceTree = "<group>"; };
+		58EE43780A0674B4DAED9C37 /* Pods_RandomMessageApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomMessageApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F30938CE460FACBB7B576FC5 /* Pods-RandomMessageApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomMessageApp.release.xcconfig"; path = "Target Support Files/Pods-RandomMessageApp/Pods-RandomMessageApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,7 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B31E203150012D539D02E98 /* Pods_RandomMessageApp.framework in Frameworks */,
+				473D3F310E4E1E871D206F88 /* Pods_RandomMessageApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				083FC23E2AB95D640004E86F /* APIManager.swift */,
+				087B2B512ABB04AB00C5BA01 /* Data.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -85,7 +86,6 @@
 		08615DF42AB8099900C66D08 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0863A40D2AB7F0ED00553007 /* HexColorExtension.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -97,7 +97,7 @@
 				086F24542AB742DE006E10FB /* RandomMessageApp */,
 				086F24532AB742DE006E10FB /* Products */,
 				E21212930FA0112A7606FAA8 /* Pods */,
-				DBD75B80C1E2985C299CCF2C /* Frameworks */,
+				E40FFA4937061EF6086FDAE1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,27 +126,28 @@
 			isa = PBXGroup;
 			children = (
 				086F24732AB7744F006E10FB /* login.riv */,
-				08A5629E2AB9BF2E00B2685E /* mainBackground.mp4 */,
+				087B2B532ABB05B800C5BA01 /* mainBackground.mp4 */,
 				08A697BA2ABA9F950052EBB4 /* summer-surf-120252.mp3 */,
 			);
-			path = AssetsFolder;
-			sourceTree = "<group>";
-		};
-		DBD75B80C1E2985C299CCF2C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E8B3225A5FA3EEDA85BE1C4B /* Pods_RandomMessageApp.framework */,
-			);
-			name = Frameworks;
+			name = AssetsFolder;
+			path = RandomMessageApp/AssetsFolder;
 			sourceTree = "<group>";
 		};
 		E21212930FA0112A7606FAA8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3330A9EEC283A1BC37FA3536 /* Pods-RandomMessageApp.debug.xcconfig */,
-				7389564CACCFE8BD0A1AA27F /* Pods-RandomMessageApp.release.xcconfig */,
+				1778C9AE28B30D86B75E6150 /* Pods-RandomMessageApp.debug.xcconfig */,
+				F30938CE460FACBB7B576FC5 /* Pods-RandomMessageApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E40FFA4937061EF6086FDAE1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				58EE43780A0674B4DAED9C37 /* Pods_RandomMessageApp.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,11 +157,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 086F24662AB742DF006E10FB /* Build configuration list for PBXNativeTarget "RandomMessageApp" */;
 			buildPhases = (
-				08B642948193F7B52FA21FA3 /* [CP] Check Pods Manifest.lock */,
+				D3DE745BA5D5F721C0304B0C /* [CP] Check Pods Manifest.lock */,
 				086F244E2AB742DE006E10FB /* Sources */,
 				086F244F2AB742DE006E10FB /* Frameworks */,
 				086F24502AB742DE006E10FB /* Resources */,
-				BA1CF1E4A4B58745EA97CDA1 /* [CP] Embed Pods Frameworks */,
+				8684A15F5BFAE1625358F2D5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -209,9 +210,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08A5629F2AB9BF2E00B2685E /* mainBackground.mp4 in Resources */,
 				086F245F2AB742DF006E10FB /* Assets.xcassets in Resources */,
 				086F24742AB7744F006E10FB /* login.riv in Resources */,
+				087B2B542ABB05B800C5BA01 /* mainBackground.mp4 in Resources */,
 				08A697BB2ABA9F950052EBB4 /* summer-surf-120252.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,7 +220,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		08B642948193F7B52FA21FA3 /* [CP] Check Pods Manifest.lock */ = {
+		8684A15F5BFAE1625358F2D5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RandomMessageApp/Pods-RandomMessageApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RandomMessageApp/Pods-RandomMessageApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RandomMessageApp/Pods-RandomMessageApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3DE745BA5D5F721C0304B0C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -241,23 +259,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BA1CF1E4A4B58745EA97CDA1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RandomMessageApp/Pods-RandomMessageApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RandomMessageApp/Pods-RandomMessageApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RandomMessageApp/Pods-RandomMessageApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -267,11 +268,11 @@
 			files = (
 				086F245A2AB742DE006E10FB /* LoginViewController.swift in Sources */,
 				086F246A2AB743EF006E10FB /* MainViewController.swift in Sources */,
-				0863A40E2AB7F0ED00553007 /* HexColorExtension.swift in Sources */,
 				083FC23F2AB95D650004E86F /* APIManager.swift in Sources */,
 				086F24562AB742DE006E10FB /* AppDelegate.swift in Sources */,
 				086F24582AB742DE006E10FB /* SceneDelegate.swift in Sources */,
 				0863A4102AB7FAC400553007 /* SendMessageViewController.swift in Sources */,
+				087B2B522ABB04AB00C5BA01 /* Data.swift in Sources */,
 				0863A4122AB7FAE700553007 /* ReadMessageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,7 +396,7 @@
 		};
 		086F24672AB742DF006E10FB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3330A9EEC283A1BC37FA3536 /* Pods-RandomMessageApp.debug.xcconfig */;
+			baseConfigurationReference = 1778C9AE28B30D86B75E6150 /* Pods-RandomMessageApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -428,7 +429,7 @@
 		};
 		086F24682AB742DF006E10FB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7389564CACCFE8BD0A1AA27F /* Pods-RandomMessageApp.release.xcconfig */;
+			baseConfigurationReference = F30938CE460FACBB7B576FC5 /* Pods-RandomMessageApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
