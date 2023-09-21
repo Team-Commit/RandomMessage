@@ -41,7 +41,7 @@ class LaunchScreenViewController: UIViewController {
         }
         
         labelImageView.snp.makeConstraints { make in
-            make.top.equalTo(islandImageView).inset(30)
+            make.top.equalTo(islandImageView.snp_bottomMargin).offset(30)
             make.centerX.equalToSuperview()
         }
     }

@@ -60,6 +60,14 @@ class MainViewController: UIViewController {
         return button
     }()
     
+    private lazy var myPageButton: UIButton = {
+        let button = UIButton()
+//        button.setImage(UIImage(named: "myPageButton"), for: .normal)
+        return button
+    }()
+    
+    
+    
     
     private var isActive: Bool = false {
         didSet {
@@ -102,6 +110,8 @@ extension MainViewController {
         view.addSubview(floatingButton)
         view.addSubview(writeButton)
         view.addSubview(stopMusicButton)
+        view.addSubview(myPageButton)
+        
         setupConstraints()
         
     }
@@ -110,6 +120,11 @@ extension MainViewController {
 //MARK: - Constraints
 extension MainViewController {
     func setupConstraints() {
+        
+        myPageButton.snp.makeConstraints { make in
+//            make.top.
+        }
+        
         
     }
 }

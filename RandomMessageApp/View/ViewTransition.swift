@@ -2,7 +2,6 @@ import UIKit
 
 class FadeTransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate {
     
-    private let soundEffect = SoundEffect()
     
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
@@ -10,7 +9,6 @@ class FadeTransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate
     }
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-          soundEffect.playCrashSound()
           return FadeInTransition()
       }
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -20,9 +18,7 @@ class FadeTransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate
         containerView.addSubview(toViewController.view)
         
         toViewController.view.alpha = 0
-        
-        soundEffect.playCrashSound()
-        
+            
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
             toViewController.view.alpha = 1
         }) { (completed) in
